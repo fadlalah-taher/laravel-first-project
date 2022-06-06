@@ -8,9 +8,7 @@ class TestController extends Controller{
     public function sayHi(){
         echo "hi";
     }
-    public function sayBye(){
-        echo "hi";
-    }
+    
     public function palindrome(){
         $array = ['lks', 'tel', 'lol', 'abcba', 'north'];
         $count = 0;
@@ -20,6 +18,20 @@ class TestController extends Controller{
             }
         }
         echo $count;
+    }
+
+    public function time(){
+        $year = 31536000*238;
+        $seconds = time() + $year;
+        echo $seconds;
+    }
+
+
+
+    public function higherPro(){
+        $array=["Pablo","Nour","Mohamad","Pablo","Fouad","Hadi","Ali","Pablo","oula","eli","Pablo"];
+        $result=rand(0,count($array));
+        echo $array[$result];
     }
 
 
