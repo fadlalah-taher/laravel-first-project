@@ -22,6 +22,20 @@ class TestController extends Controller{
         echo $seconds;
     }
 
+    public function text(){
+        $content = file_get_contents("https://icanhazdadjoke.com/slack");
+        $data = json_decode($content, $assoc = false);
+        echo json_encode($content['attachments']['text']);
+        
+    }
+
+    public function beers(){
+        $content = file_get_contents("https://api.punkapi.com/v2/beers");
+        $data = json_decode($content, $assoc = false);
+        $randIndex = rand(0, count($data)-1);
+        echo json_encode($data[$randIndex]);
+    }
+
     public function studentlist(){
         $i = 0;
         $j = 1;
