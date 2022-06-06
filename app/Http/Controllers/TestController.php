@@ -25,9 +25,8 @@ class TestController extends Controller{
 
     public function text(){
         $content = file_get_contents("https://icanhazdadjoke.com/slack");
-        $data = json_decode($content, $assoc = false);
-        echo json_encode($content['attachments']['text']);
-        
+        $data = json_decode($content, true);
+        echo json_encode($data["attachments"][0]['text']);
     }
 
     public function beers(){
