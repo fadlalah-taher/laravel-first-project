@@ -18,7 +18,8 @@ class TestController extends Controller{
 
     public function time(){
         $year = 31536000*238;
-        $seconds = time() + $year;
+        $days = 105*864000;
+        $seconds = time() + $year -$days;
         echo $seconds;
     }
 
@@ -39,20 +40,18 @@ class TestController extends Controller{
     public function studentlist(){
         $i = 0;
         $j = 1;
-        $students=["Pablo","Nour","Mohamad","Pablo","Fouad","Hadi","Ali","Pablo","oula","eli","Pablo", "Hoda"];
+        $students=["Pablo","Nour","Mohamad","Pablo","Fouad","Hadi","Ali","Pablo","oula","eli","Pablo", "Hoda", "fadel"];
         for($x = 0; $x <= count($students)-1; $x++){
             echo $students[$j];
-            echo " ";
+            echo "  ";
             echo $students[$i];
             echo "<br>";
-            if($i+2 == count($students)-1 || $j+2 == count($students)-1){
+            if($i+2 > count($students)-1 || $j+2 > count($students)-1){
+                if(count($students)-1 % 2 != 0 ){
                 $i = $i +2;
-                $j = $j +2;
-                echo $students[$j];
-                echo " ";
                 echo $students[$i];
-                echo "<br>";
-                return "finish";
+                }
+                return "";
             }
             $i = $i +2;
             $j = $j +2;
